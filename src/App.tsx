@@ -1,10 +1,11 @@
 import React from 'react';
+import Router from './router/Router';
 import './App.less';
 
-function App() {
+function App(): React.ReactElement {
   return (
     <div className="App">
-      121
+      <Router />
     </div>
   );
 }

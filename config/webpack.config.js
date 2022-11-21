@@ -1,4 +1,5 @@
 'use strict';
+/* eslint-disable */
 
 const fs = require('fs');
 const path = require('path');
@@ -148,6 +149,18 @@ module.exports = function (webpackEnv) {
                 // Adds PostCSS Normalize as the reset css with default options,
                 // so that it honors browserslist config in package.json
                 // which in turn let's users customize the target behavior as per their needs.
+
+                require('postcss-px-to-viewport')({
+                  viewportWidth: 375,
+                  viewportHeight: 677,
+                  unitPrecision: 6,
+                  viewportUnit: 'vw',
+                  selectorBlackList: [],
+                  minPixelValue: 1,
+                  mediaQuery: false,
+                  landscapeUnit: 'vw',
+                  fontViewportUnit: 'vw'
+                }),
                 'postcss-normalize',
               ]
               : [
@@ -162,6 +175,17 @@ module.exports = function (webpackEnv) {
                     stage: 3,
                   },
                 ],
+                require('postcss-px-to-viewport')({
+                  viewportWidth: 375,
+                  viewportHeight: 677,
+                  unitPrecision: 6,
+                  viewportUnit: 'vw',
+                  selectorBlackList: [],
+                  minPixelValue: 1,
+                  mediaQuery: false,
+                  landscapeUnit: 'vw',
+                  fontViewportUnit: 'vw'
+                })
               ],
           },
           sourceMap: isEnvProduction ? shouldUseSourceMap : isEnvDevelopment,
@@ -314,6 +338,7 @@ module.exports = function (webpackEnv) {
       alias: {
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
+        '@': path.resolve(__dirname, '../src'),
         'react-native': 'react-native-web',
         // Allows for better profiling with ReactDevTools
         ...(isEnvProductionProfile && {
