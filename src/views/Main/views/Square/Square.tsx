@@ -1,4 +1,5 @@
 import React from 'react';
+import './Square.less';
 
 const Square = (): React.ReactElement => {
 

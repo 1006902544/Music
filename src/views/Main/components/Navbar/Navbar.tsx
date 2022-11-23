@@ -25,14 +25,14 @@ const Navbar = (props: IProps): React.ReactElement => {
   //拖拽
   const handleTouchMove: TouchEventHandler = (e) => {
     const x = e.targetTouches[0].clientX - startPointX.current;
-    setTransformX((x / document.body.offsetWidth) * 100 * 2);
+    setTransformX((x / document.body.offsetWidth) * 100 * 3);
     document.addEventListener("touchend", handleTouchEnd as () => void);
   };
 
   //拖拽结束
   const handleTouchEnd: TouchEventHandler = (e) => {
     const percent = ((e.changedTouches[0].clientX - startPointX.current) / document.body.offsetWidth);
-    if (percent > 0.33 || percent < -0.33) {
+    if (percent > 0.25 || percent < -0.25) {
       changeNavbar(percent);
     }
     setTransformX(0);
@@ -67,6 +67,7 @@ const Navbar = (props: IProps): React.ReactElement => {
   const timer = useRef<NodeJS.Timeout | null>(null);
 
   const showBorder = () => {
+    clearTimeout(timer.current as NodeJS.Timeout);
     setIsBorder(true);
     timer.current = setTimeout(() => {
       setIsBorder(false);

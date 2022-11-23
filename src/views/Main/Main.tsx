@@ -20,15 +20,25 @@ const Main = (): React.ReactElement => {
 
   const [nowLocation, setNowLocation] = useState('/square');
 
-  useEffect(() => {
-    changeRoute();
-  }, [navbar]);
-
   //navbar变化切换路由
   const changeRoute = () => {
     const path = navbar.filter(item => item.chose)[0].path;
     setNowLocation(path);
     navigate(navbar.filter(item => item.chose)[0].path);
+  };
+
+  useEffect(() => {
+    handleDirection();
+    changeRoute();
+  }, [navbar]);
+
+  const [direction, setDirection] = useState('right');
+
+  //判断方向
+  const handleDirection = () => {
+    const curId = navbar.findIndex(item => item.chose) + 1;
+    const preId = navbar.findIndex(item => item.path === nowLocation) + 1;
+    setDirection(curId >= preId ? 'right' : 'left');
   };
 
   return (
@@ -37,8 +47,8 @@ const Main = (): React.ReactElement => {
 
       <div className="main-content">
         <TransitionGroup>
-          <CSSTransition timeout={300} classNames="main-animation" key={nowLocation}>
-            {outlet}
+          <CSSTransition timeout={300} classNames={`main-animation-${direction}`} key={nowLocation}>
+            {outlet ? outlet : <div></div>}
           </CSSTransition>
         </TransitionGroup>
       </div>
