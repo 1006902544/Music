@@ -15,14 +15,14 @@ const Router = (): React.ReactElement => {
     <BrowserRouter basename="/">
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route path="/" element={<Main />}>
+          <Route path="/" element={<Main key={'/'} />}>
             <Route path="/square" element={<Square />}></Route>
             <Route path="/mine" element={<Mine />}></Route>
             <Route path="/user" element={<User />}></Route>
             <Route path="/shop" element={<Shop />}></Route>
             <Route path="/cart" element={<Cart />}></Route>
           </Route>
-          <Route path="/login" element={<Login />}></Route>
+          <Route path="/login" element={<Login key={'/login'} />}></Route>
         </Route>
       </Routes>
     </BrowserRouter>

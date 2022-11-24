@@ -1,4 +1,5 @@
 import React from 'react';
+import './Shop.less';
 
 const Shop = (): React.ReactElement => {
 

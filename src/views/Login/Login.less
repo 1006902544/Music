@@ -1,5 +1,80 @@
+@import '@/index.less';
+
 .login-container {
   width: 100%;
   height: 100%;
+  overflow: hidden;
   position: absolute;
+
+  .login-header {
+    width: 100%;
+    height: 50px;
+    position: relative;
+
+    .go-main {
+      position: absolute;
+      width: 80px;
+      height: 30px;
+      right: 15px;
+      top: 50%;
+      border-radius: 10px;
+      transform: translateY(-50%);
+      line-height: 30px;
+      text-align: center;
+      color: @topic-color;
+      background-image: linear-gradient(to right,@main-color-deep,@main-color-shallow);
+      font-size: 10px;
+      font-weight: 100;
+    }
+  }
+
+  .toggle-com {
+    width: 150px;
+    height: 30px;
+    color: @topic-color;
+    position: fixed;
+    top: 600px;
+    left: 50%;
+    transform:translateX(-50%);
+    text-align: center;
+    line-height: 30px;
+    font-size: 10px;
+  }
+}
+
+.login-com-animation-enter {
+  transform: translateX(-100%)
+}
+
+.login-com-animation-enter-active {
+  transform: translateX(0%);
+  transition: all 0.3s ease;
+}
+
+.login-com-animation-exit{
+  transform: translateX(0%);
+  transition: all 0.3s ease;
+}
+
+.login-com-animation-exit-active{
+  transform: translateX(-100%);
+}
+
+//
+.enroll-com-animation-enter {
+  transform: translateX(100%)
+}
+
+.enroll-com-animation-enter-active {
+  transform: translateX(0%);
+  transition: all 0.3s ease;
+}
+
+.enroll-com-animation-exit{
+  transform: translateX(0%);
+  transition: all 0.3s ease;
+}
+
+.enroll-com-animation-exit-active{
+  transform: translateX(100%);
 }

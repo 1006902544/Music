@@ -1,4 +1,5 @@
 import React from 'react';
+import './Cart.less';
 
 const Cart = (): React.ReactElement => {
 

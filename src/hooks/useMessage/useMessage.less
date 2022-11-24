@@ -1,0 +1,50 @@
+.message-item,
+.message-item-out  {
+  min-width: 100px;
+  min-height: 50px;
+  max-width: 150px;
+  max-height: 100px;
+  background-image: linear-gradient(to right top,#07f0d9,#ff399c);
+  padding:15px;
+  color: white;
+  border-radius: 10px 0 0 10px;
+  font-size: 12px;
+  margin-top: 15px;
+
+
+  .message-item-container {
+    width: 100%;
+    height: 100%;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    overflow: hidden;
+  }
+}
+
+.message-item {
+  animation:messageIn 500ms ease;
+}
+
+.message-item-out {
+  animation:messageOut 500ms ease;
+}
+
+@keyframes messageIn {
+  from {
+    transform: translateX(100%)
+  };
+  to{
+    transform: translateX(0%)
+  }
+}
+
+@keyframes messageOut {
+  from {
+    transform: translateX(0%)
+  };
+  to{
+    transform: translateX(100%)
+  }
+}
+

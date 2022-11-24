@@ -1,4 +1,5 @@
 import React from 'react';
+import './Mine.less';
 
 const Mine = (): React.ReactElement => {
 
