@@ -3,14 +3,20 @@ import type { PayloadAction } from '@reduxjs/toolkit';
 import { getUserAction } from './userAsyncAction';
 
 export interface user {
-  username: string | null
-  name: string | null
+  art_count: number
+  avatar: string
+  com_count: number
+  create_time: number
+  fans_count: number
+  integral: number
+  name: string
+  permission: 1 | 2
+  sex: 0 | 1 | 2
+  uid: string
+  username: string
 }
 
-const initialState: user = {
-  username: null,
-  name: null
-};
+const initialState: { user: user | null } = { user: null };
 
 export const userSlice = createSlice({
   name: 'user',
@@ -18,8 +24,10 @@ export const userSlice = createSlice({
   reducers: {},
 
   extraReducers: builder => {
-    builder.addCase(getUserAction.fulfilled, (state, action: PayloadAction<user>) => {
-      state = action.payload;
+    builder.addCase(getUserAction.fulfilled, (state, action: PayloadAction<user | null>) => {
+      console.log(action.payload);
+
+      state.user = action.payload;
     });
   }
 });

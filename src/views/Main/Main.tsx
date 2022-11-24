@@ -4,11 +4,20 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import MainHeader from './components/Header/Header';
 import MainNavbar from './components/Navbar/Navbar';
 import * as type from './Main.d';
+import { useAppSelector } from '@/store/hooks';
+import type { user } from '@/store/user/userSlice';
 import './Main.less';
 
 const Main = (): React.ReactElement => {
   const navigate = useNavigate();
   const outlet = useOutlet();
+  const userStore = useAppSelector(state => state.userReducer.user);
+
+  const [user, setUser] = useState<user | null>(null);
+
+  useEffect(() => {
+    setUser(userStore);
+  });
 
   const [navbar, setNavbar] = useState<type.navbar>([
     { id: 1, value: '广场', path: '/square', chose: true },
@@ -43,7 +52,7 @@ const Main = (): React.ReactElement => {
 
   return (
     <div className="main-container">
-      <MainHeader />
+      <MainHeader user={user} />
 
       <div className="main-content">
         <TransitionGroup>

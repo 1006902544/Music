@@ -3,5 +3,9 @@ import { getUserDetail } from '@/api/user/user';
 
 export const getUserAction = createAsyncThunk('user', async () => {
   const { data } = await getUserDetail();
-  return data.detail;
+  if (data.code === 200) {
+    return data.detail;
+  } else {
+    return null;
+  }
 });

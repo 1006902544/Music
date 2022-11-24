@@ -5,7 +5,7 @@ import LoginCom from './components/LoginCom/LoginCom';
 import EnrollCom from './components/EnrollCom/EnrollCom';
 import './Login.less';
 
-const Login = (props: unknown): React.ReactElement => {
+const Login = (): React.ReactElement => {
   const navigate = useNavigate();
 
   const goMain = () => {
@@ -18,20 +18,27 @@ const Login = (props: unknown): React.ReactElement => {
     <div className="login-container">
       <div className="login-header">
         <div className="go-main" onClick={goMain}>主页</div>
+
         <TransitionGroup>
-          <CSSTransition classNames="login-com-animation" timeout={300} key={nowCom} unmountOnExit component={<div />}>
+          <CSSTransition classNames={`${nowCom}-com-animation`} timeout={300} key={nowCom} unmountOnExit mountOnEnter>
             {
-              props ?
-                <>
-                  <LoginCom nowCom={nowCom} />
-                  <EnrollCom nowCom={nowCom} /></> :
-                null
+              nowCom === 'login' ?
+                <LoginCom /> :
+                <EnrollCom setNowCom={setNowCom} />
             }
           </CSSTransition>
         </TransitionGroup>
-      </div>
 
-      <button onClick={() => { setNowCom(nowCom === 'login' ? 'enroll' : 'login'); }}>asdas</button>
+        {
+          nowCom === 'login' ?
+            <div className="toggle-com" onClick={() => setNowCom('enroll')}>
+              没有账号？<span>去注册</span>
+            </div> :
+            <div className="toggle-com" onClick={() => setNowCom('login')}>
+              已有帐号？<span>去登陆</span>
+            </div>
+        }
+      </div>
     </div>
   );
 };
