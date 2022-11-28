@@ -1,0 +1,107 @@
+@import '@/index.less';
+
+[class^="freshing-sign"] {
+  position: absolute;
+  width: 100px;
+  height: 60px;
+  right: 0;
+  bottom: 0;
+  transform-origin: right bottom;
+  transition: all 0.3s;
+  z-index: 500;
+
+  .freshing-sign {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 80px;
+    height: 40px;
+    color: white;
+    background-image: linear-gradient(to right , @main-color-green,@main-color-shallow );
+    border-radius: 5px 5px 0 5px;
+  }
+
+  #freshing-sign-canvas {
+    position: absolute;
+    right: 0;
+    width: 20px;
+    height: 60px;
+  }
+
+  .icon-zhengque,
+  .icon-shuaxin {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+  }
+
+  .icon-zhengque {
+    animation:zhengque 500ms ease
+  }
+
+  .icon-shuaxin {
+    animation:shuaxin 500ms linear infinite
+  }
+}
+
+.freshing-sign-com-show,
+.freshing-sign-com-finish {
+  animation:showSign 500ms ease;
+}
+
+.freshing-sign-com-unmounting {
+  animation:unmounting 500ms ease forwards;
+}
+
+.freshing-sign-com-unmount {
+  transform: scale(0);
+}
+
+@keyframes showSign {
+  0% {
+    transform: scale(0)
+  }
+  50% {
+    transform: scale(1.2)
+  }
+  60% {
+    transform: scale(0.8)
+  }
+  70% {
+    transform: scale(1.1)
+  }
+  100% {
+    transform: scale(1)
+  }
+}
+
+@keyframes unmounting {
+  0% {
+    transform: scale(1)
+  }
+  50% {
+    transform: scale(1.3)
+  }
+  100% {
+    transform: scale(0)
+  }
+}
+
+@keyframes zhengque {
+  from {
+    transform: translate(-50%,-50%) scaleX(0)
+  }
+  to {
+    transform: translate(-50%,-50%) scaleX(1)
+  }
+}
+
+@keyframes shuaxin {
+  from {
+    transform: translate(-50%,-50%) rotate(0deg)
+  }
+  to {
+    transform: translate(-50%,-50%) rotate(360deg)
+  }
+}

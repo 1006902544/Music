@@ -7,7 +7,7 @@ let wrap: HTMLElement | null = null;
 
 const useMessage = () => {
 
-  return (text: string, type: 'success' | 'failed' | 'warn' | 'none', timeout?: number) => {
+  return (text: string | number, type: 'success' | 'failed' | 'warn' | 'none', timeout?: number) => {
     if (!wrap) {
       wrap = document.createElement('div');
       wrap.style.cssText = `

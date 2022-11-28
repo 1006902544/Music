@@ -8,11 +8,14 @@ import useMessage from '@/hooks/useMessage/useMessage';
 import { login } from '@/api/user/user';
 import tokenHandle from '@/utils/token';
 import { useNavigate } from 'react-router';
+import { useAppDispatch } from '@/store/hooks';
+import { getUserAction } from '@/store/user/userAsyncAction';
 import './LoginCom.less';
 
 const LoginCom = (): React.ReactElement | null => {
   const message = useMessage();
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
 
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
@@ -28,6 +31,7 @@ const LoginCom = (): React.ReactElement | null => {
       const { data } = await login({ username, password });
       if (data.code === 200) {
         tokenHandle.setToken(data.token);
+        dispatch(getUserAction);
         message('登录成功', 'none');
         navigate('/');
       }

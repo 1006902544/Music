@@ -45,6 +45,7 @@ module.exports = {
         "new-parens": 2,
         "no-array-constructor": 2,
         "no-class-assign": 2,
-        "no-cond-assign": 2
+        "no-cond-assign": 2,
+        '@typescript-eslint/no-non-null-assertion': 'off'
     }
 };

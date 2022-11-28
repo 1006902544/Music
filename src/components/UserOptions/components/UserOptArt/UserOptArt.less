@@ -1,0 +1,47 @@
+@import '@/index.less';
+
+.user-opt-art {
+  width: 240px;
+  height: 50px;
+  background-color: rgb(43, 42, 42);
+  margin-top: 10px;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+
+  .user-opt-art-title {
+    flex: 1;
+    font-size: 16px;
+    line-height: 25px;
+    text-indent: 15px;
+    padding-right: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .user-opt-art-info {
+    flex: 1;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 10px;
+
+    .user-opt-art-time,
+    .user-opt-art-like {
+      width: 150px;
+      height: 12px;
+      background-color: @main-color-shallow;
+      border-radius: 100px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      line-height: 12px;
+      text-align: center;
+    }
+
+    .user-opt-art-like {
+      width: 50px;
+    }
+  }
+}

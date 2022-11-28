@@ -1,5 +1,131 @@
+@import '@/index.less';
+
 .mine-container {
   position: absolute;
   width: 100%;
   height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
+  .mine-unlogin {
+    width: 300px;
+    height: 70px;
+    background-color: @topic-bgcolor-shallow;
+    margin-top: 40px;
+    border-radius: 10px;
+    text-align: center;
+    line-height: 70px;
+    font-size: 12px;
+  }
+
+  .mine-card {
+    position: relative;
+    width: 300px;
+    height: 70px;
+    background-color: @topic-bgcolor-shallow;
+    margin-top: 40px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+
+    .mine-card-avatar {
+      width: 50px;
+      height: 50px;
+      border-radius: 10px;
+      overflow: hidden;
+      object-fit: contain;
+    }
+
+    .mine-card-name {
+      width: 150px;
+      height: 50px;
+      line-height: 50px;
+      font-size: 20px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .mine-card-sex {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      i{
+        font-size: 30px;
+      }
+
+      .icon-nan1 {
+        color: rgb(31, 84, 255);
+      }
+
+      .icon-nv1 {
+        color: rgb(230, 13, 78);
+      }
+    }
+  }
+
+  .mine-options {
+    width: 300px;
+    height: 300px;
+    margin-top: 30px;
+    border-radius: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+
+    >div {
+      flex-shrink: 0;
+      width: 120px;
+      height: 130px;
+      display: flex;
+      flex-direction:column;
+      justify-content: center;
+      align-items: center;
+      background-color: @topic-bgcolor-shallow;
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      &:active {
+        transform: translateY(-15%)
+      }
+
+      i{
+        margin-bottom: 10px;
+        font-size: 30px;
+        color: @main-color-shallow;
+      }
+    }
+  }
+
+  .mine-time {
+    width: 200px;
+    height: 15px;
+    line-height: 15px;
+    text-align: center;
+    border-radius: 5px;
+    background-color: @topic-bgcolor-shallow;
+    font-size: 10px;
+    margin-top: 20px;
+  }
+
+  .mine-edit {
+    width: 100px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    border-radius: 5px;
+    background-color: @topic-bgcolor-shallow;
+    margin-top: 20px;
+    font-size: 10px;
+    transition: all 0.3s;
+    &:active {
+      transform: scale(1.2)
+    }
+  }
 }
