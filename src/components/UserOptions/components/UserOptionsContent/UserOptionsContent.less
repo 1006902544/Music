@@ -1,0 +1,25 @@
+@import '@/index.less';
+
+.user-options-dialog-content {
+  width: 255px;
+  height: 430px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  &::-webkit-scrollbar{
+    width: 3px;
+  }
+  &::-webkit-scrollbar-thumb{
+    width: 3px;
+    background-color: @main-color-shallow;
+    border-radius: 5px;
+  }
+
+  > div {
+    flex-shrink: 0;
+    overflow: hidden;
+  }
+}

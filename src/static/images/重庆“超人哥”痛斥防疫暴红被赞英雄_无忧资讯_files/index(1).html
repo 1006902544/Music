@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<!-- saved from url=(0065)https://pages.wuyou.ca/Canadalife_2P_300x250_01_221024/index.html -->
+<html lang="zh-Hans"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="ad.size" content="width=300,height=250">
+<title></title>
+<script type="text/javascript">
+	var clickTag = "https://ad.doubleclick.net/ddm/clk/538978737;347434487;k";
+	mouseClick = function(){
+		window.open(window.clickTag);
+	}
+</script>
+<script src="./gsap_3.9.1_min.js.下载"></script>
+<script src="./easepack_3.9.1_min.js.下载"></script>
+<style type="text/css">
+	body {
+		margin: 0;
+		padding: 0;
+		font-family:'Arial',Arial,'sans-serif';
+	}
+	a, a:hover, a:active, a:visited {
+		cursor: pointer;
+		border: 0;
+		color: inherit;
+		text-decoration: none;
+	}
+	img {
+		border: 0;
+	}
+	#mainContainer {
+		cursor: pointer;
+		position: absolute;
+		width: 300px;
+		height: 250px;
+		border: 1px solid #898989;
+		box-sizing: border-box;
+		background-color: #bb1732;
+		/*background-image: url(template.png);*/
+		overflow: hidden;
+	}
+	.sr-only{
+		clip: rect(1px, 1px, 1px, 1px);
+		clip-path: inset(50%);
+		height: 1px;
+		width: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		left:-1px;
+		top:-1px;
+	}
+	.default{
+		position: absolute;
+		left:-301px;
+		top:-1px;
+		width: 300px;
+		height: 250px;
+		opacity: 0;
+	}
+	.visible{
+		position: absolute;
+		left:-1px;
+		top:-1px;
+		width: 300px;
+		height: 250px;
+		opacity: 1;
+	}
+	.invisible{
+		position: absolute;
+		left:-1px;
+		top:-1px;
+		width: 300px;
+		height: 250px;
+		opacity: 0;
+	}
+</style></head>
+
+<body marginwidth="0" marginheight="0">
+	<div id="mainContainer" style="display: block;">
+		<div class="sr-only">我的退休積蓄足夠嗎？可靠的建議伴您享受退休時光翻開人生新篇章。Canada Life 加拿大人壽</div>
+		<img class="invisible" src="./life(1).png" id="life" alt="LIFE 字样为背景图。" style="opacity: 1;">
+		<img class="invisible" src="./family(1).png" id="family" alt="一对年长的中国夫妇手挽着手。" style="opacity: 1;">
+		<img class="invisible" src="./t1(1).svg" id="t1" alt="我的退休積蓄足夠嗎？" style="opacity: 0;">
+		<img class="invisible" src="./t2(1).svg" id="t2" alt="可靠的建议伴您享受退休时光翻开人生新篇章" style="opacity: 1;">
+		<img class="invisible" src="./logo(1).svg" id="logo" alt="Canada Life 加拿大人寿" style="opacity: 1;">
+		<img class="invisible" src="./cta(1).svg" id="cta" alt="了解详情" style="opacity: 1;">
+		<a class="visible" href="javascript:mouseClick();" role="button" aria-label="了解详情"></a>
+	</div>
+	<script type="text/javascript">
+		var tl;
+		window.onload = function(){
+			tl = gsap.timeline({defaults: {duration: 0.5}});
+
+			tl.set(["#family, #logo"], {opacity: 1});
+			tl.to("#life", {opacity: 1, duration: 9}, "0");
+			tl.to("#t1", {opacity: 1}, "0.5");
+			tl.to("#t1", {opacity: 0}, ">1.5");
+			tl.to("#t2", {opacity: 1}, ">");
+			tl.to("#cta", {opacity: 1}, ">2.5");
+
+			console.log(tl.totalDuration());
+			mainContainer.style.display = "block";
+		};
+	</script>
+
+
+</body></html>

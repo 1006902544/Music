@@ -1,0 +1,53 @@
+@import '@/index.less';
+
+.user-options-dialog {
+  position: absolute;
+  width: 275px;
+  height: 500px;
+  background-color: @topic-bgcolor-shallow;
+  left: 50px;
+  top: 75px;
+  border-radius: 10px;
+  padding: 10px;
+  transform-origin: top;
+  animation:optionsIn 300ms ease;
+
+  .user-options-dialog-title {
+    width: 255px;
+    height: 50px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 20px;
+    font-weight: 100;
+  }
+}
+
+@keyframes optionsIn {
+  0% {
+    transform: scaleX(0) scaleY(0)
+  }
+  30% {
+    transform: scaleX(1) scaleY(1)
+  }
+  50% {
+    transform: scaleX(1.1) scaleY(1.1)
+  }
+  75% {
+    transform: scaleX(0.9) scaleY(0.9)
+  }
+  100% {
+    transform: scaleX(1) scaleY(1)
+  }
+}
+
+@keyframes optionsOut {
+  0% {
+    transform: scaleX(1) scaleY(1)
+  }
+  30% {
+    transform: scaleX(1.1) scaleY(1.1)
+  }
+  100% {
+    transform: scaleX(0) scaleY(0)
+  }
+}

@@ -4,7 +4,8 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import MainHeader from './components/Header/Header';
 import MainNavbar from './components/Navbar/Navbar';
 import * as type from './Main.d';
-import { useAppSelector } from '@/store/hooks';
+import { useAppSelector, useAppDispatch } from '@/store/hooks';
+import { getUserAction } from '@/store/user/userAsyncAction';
 import type { user } from '@/store/user/userSlice';
 import './Main.less';
 
@@ -17,7 +18,7 @@ const Main = (): React.ReactElement => {
 
   useEffect(() => {
     setUser(userStore);
-  });
+  }, [userStore]);
 
   const [navbar, setNavbar] = useState<type.navbar>([
     { id: 1, value: '广场', path: '/square', chose: true },
@@ -49,6 +50,14 @@ const Main = (): React.ReactElement => {
     const preId = navbar.findIndex(item => item.path === nowLocation) + 1;
     setDirection(curId >= preId ? 'right' : 'left');
   };
+
+  //更新用户信息
+  const dispatch = useAppDispatch();
+
+  useEffect(() => {
+    dispatch(getUserAction());
+  }, []);
+
 
   return (
     <div className="main-container">

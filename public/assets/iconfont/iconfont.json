@@ -6,6 +6,27 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "969378",
+      "name": "文章管理",
+      "font_class": "svgwrite",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "6366903",
+      "name": "粉丝数",
+      "font_class": "fensishu",
+      "unicode": "e60f",
+      "unicode_decimal": 58895
+    },
+    {
+      "icon_id": "7163167",
+      "name": "x_关注2",
+      "font_class": "x_guanzhu",
+      "unicode": "e68b",
+      "unicode_decimal": 59019
+    },
+    {
       "icon_id": "1187",
       "name": "密匙",
       "font_class": "michi",

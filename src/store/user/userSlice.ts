@@ -8,6 +8,7 @@ export interface user {
   com_count: number
   create_time: number
   fans_count: number
+  concern_count: number
   integral: number
   name: string
   permission: 1 | 2
@@ -25,8 +26,6 @@ export const userSlice = createSlice({
 
   extraReducers: builder => {
     builder.addCase(getUserAction.fulfilled, (state, action: PayloadAction<user | null>) => {
-      console.log(action.payload);
-
       state.user = action.payload;
     });
   }

@@ -14,7 +14,10 @@ const MainHeader = (props: { user: user | null }): React.ReactElement => {
   return (
     <div className="main-header-component">
       <div className="main-header-name">{user ? user.name + ',欢迎回来' : null}</div>
-      <div className="main-header-login" onClick={goLogin}>去登陆 ＞</div>
+
+      <div className="main-header-login" onClick={goLogin}>{
+        user ? '注销' : '去登陆 >'
+      }</div>
     </div>
   );
 };
